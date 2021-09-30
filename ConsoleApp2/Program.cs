@@ -10,42 +10,54 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            int a, b;
-            
+          
+            int i;
+            int res = 0;
+            int res2 = 0;
+            int d = 0;
+            char x = 'X';
 
-            Console.WriteLine("Введите первое число");
-            a = int.Parse(Console.ReadLine());
-            Console.WriteLine("Введите второе число");
-            b = int.Parse(Console.ReadLine());
-            Console.WriteLine("числа:");
-
-
-            for (int i = a; i <= b; i+= ++a)
+            int[] a = new int[9];
+            int length = a.Length;
+            Console.WriteLine("Введите первые 9 чисел ISBN: ");
+            for (i = 0; i < 9; i++)
             {
-                
+                a[i] = int.Parse(Console.ReadLine());
+                res += a[i] * length;
+                length--;
+            }
 
-                string c = "";
+            res2 = res;
 
-                while (i != 0)
+            while (d<10)
+            {
+                res = res2;
+                res += d * 1;
+                if (res % 11 == 0)
                 {
-                    int t = i % 3;
-                    i /= 3;
-                    c += t.ToString();
+                    
+                    break;
                 }
-                char[] arr = c.ToCharArray();
-                Array.Reverse(arr);
-                if (new string(arr).Contains("22"))
-                {
-                Console.WriteLine(new string(arr));
-                }
+                d++;
 
             }
 
+            for (i = 0; i < 9; i++)
+            {
+                Console.Write(a[i] + "");
+
+            }
+            if (d == 10)
+            {
+                Console.WriteLine(x);
+            }
+            else
+            {
+                Console.WriteLine(d);
+            }
+          
             Console.ReadKey();
         }
-
-        
-            
-        
+ 
     }
 }
